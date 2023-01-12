@@ -62,6 +62,10 @@ class PostalCodeController extends Controller
 
         }
 
+        if($codeData == []){
+            abort(404);
+        }
+
         $codeData['settlements'] = $settlements;
 
         return response()->json($codeData);
