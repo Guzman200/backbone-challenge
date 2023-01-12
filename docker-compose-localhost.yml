@@ -1,0 +1,58 @@
+version: "3.9"
+services:
+
+  ## -----------------------------------------------
+  #
+  #   Server web with nginx app-laravel
+  #
+  ## -----------------------------------------------
+  webserver-app-laravel:
+    depends_on:
+      - app-laravel
+    image: nginx:alpine
+    container_name: webserver-app-laravel
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+    volumes:
+      - ./app-laravel/:/var/www/
+      - ./conf/nginx/conf.d/app.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - backbone-network
+
+  ## -----------------------------------------------
+  #
+  #   PHP-FPM app-laravel
+  #
+  ## -----------------------------------------------
+
+  app-laravel:
+    build:
+      context: conf
+      dockerfile: Dockerfile
+    container_name: app-laravel
+    restart: unless-stopped
+    tty: true
+    expose:
+      - "9000"
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+      APP_ENV: local
+      CONTAINER_ROLE: app
+    working_dir: /var/www/
+    volumes:
+      - ./app-laravel/:/var/www/
+      - ./conf/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - backbone-network
+
+## -----------------------------------------------
+#
+#   Network backbone
+#
+## -----------------------------------------------
+networks:
+  backbone-network:
+    driver: bridge

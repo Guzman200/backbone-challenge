@@ -1,0 +1,9 @@
+# Down containers
+docker-compose -f docker-compose-localhost.yml down
+
+# Start container and build
+docker-compose -f docker-compose-localhost.yml up -d --build
+
+# Start containers
+docker-compose -f docker-compose-localhost.yml up -d 
+
