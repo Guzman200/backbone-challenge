@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PostalCodeController extends Controller
 {
 
     public function searchPostalCode($code){
+
+        Log::debug("Peticion realizada");
 
         $path = storage_path() . "/codes.txt";
 
