@@ -7,58 +7,26 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## ¿Como correr el proyecto?
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Use docker para crear una pequeña aplicacion laravel y que no interfiera con las versiones de nuestro local, basta con posicionarnos dentro del proyecto y ejecutar *docker-compose -f docker-compose-localhost.yml up -d --build* luego podremos visitar en nuestro navegador la url http://localhost/api/zip-codes/76000
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ¿Como resolvi el problema?
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Primero analizando que era mas facil leer si un txt, xml o xlsx, me incline por el txt despues de leer linea por linea y ver que no tomaba demasiado tiempo ademas de la facilidad para buscar por los | separadores
 
-## Learning Laravel
+- Descargar txt con codigos postales.
+- Moverlos dentro de la carpeta storage para despues leerlo.
+- Obtener el contenido del txt.
+- Separar el contenido por \n, como sabemos toda linea de un archivo termina con un \n.
+- Iterar cada row y separar por |.
+- Como el txt esta estandarizado se sabe que la posicion 0 es el codigo postal entonces basta con hacer un if para evaluar.
+- Ir guardando los datos en variables.
+- Retornar respuesta.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+## Features adicionales
+
+Como todos los codigos postales estan ordenados y pueden repetirse n veces entonces si buscamos un codigo postal que esta en la linea 1 y en la 2 identifico cuando ya vamos en la linea 3 y como ya es un codigo postal diferente termino el flujo dejando asi de iterar 150 mil filas que serian innecesarias.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
