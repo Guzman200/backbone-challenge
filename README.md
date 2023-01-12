@@ -28,5 +28,3 @@ Primero analizando que era mas facil leer si un txt, xml o xlsx, me incline por 
 ## Features adicionales
 
 Como todos los codigos postales estan ordenados y pueden repetirse n veces entonces si buscamos un codigo postal que esta en la linea 1 y en la 2 identifico cuando ya vamos en la linea 3 y como ya es un codigo postal diferente termino el flujo dejando asi de iterar 150 mil filas que serian innecesarias.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
