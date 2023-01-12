@@ -46,7 +46,7 @@ class PostalCodeController extends Controller
                 $settlements[] = [
                     'key'       => (int) $data[12],
                     'name'      => $this->eliminar_tildes(mb_strtoupper($data[1])),
-                    'zona_type' => $this->eliminar_tildes(mb_strtoupper($data[13])),
+                    'zone_type' => $this->eliminar_tildes(mb_strtoupper($data[13])),
                     'settlement_type' => [
                         'name' => $this->eliminar_tildes($data[2])
                     ]
