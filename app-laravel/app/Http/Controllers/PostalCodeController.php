@@ -30,25 +30,25 @@ class PostalCodeController extends Controller
                 
                 $codeData = [
                     'zip_code' => $code,
-                    'locality' => $data[5],
+                    'locality' => strtoupper($data[5]),
                     'federal_entity' => [
                         'key'  => (int) $data[7],
-                        'name' => $data[4],
+                        'name' => strtoupper($data[4]),
                         'code' => null
                     ],
                     'settlements' => [],
                     'municipality' => [
                         'key'  => (int) $data[11],
-                        'name' => $data[3]
+                        'name' => strtoupper($data[3])
                     ]
                 ];
 
                 $settlements[] = [
                     'key'       => (int) $data[12],
-                    'name'      => $data[1],
-                    'zona_type' => $data[13],
+                    'name'      => strtoupper($data[1]),
+                    'zona_type' => strtoupper($data[13]),
                     'settlement_type' => [
-                        'name' => $data[2]
+                        'name' => strtoupper($data[2])
                     ]
                 ];
 
