@@ -48,7 +48,7 @@ class PostalCodeController extends Controller
                     'name'      => mb_strtoupper($data[1]),
                     'zona_type' => mb_strtoupper($data[13]),
                     'settlement_type' => [
-                        'name' => mb_strtoupper($data[2])
+                        'name' => $data[2]
                     ]
                 ];
 
